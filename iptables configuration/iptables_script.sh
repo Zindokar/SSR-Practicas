@@ -11,7 +11,6 @@ iptables -P FORWARD DROP
 
 # - Permitir tráfico loopback
 iptables -A INPUT -i lo -j ACCEPT
-iptables -A INPUT -d 127.0.0.1 -s 127.0.0.1 -j ACCEPT
 
 # - Tráfico saliente ICMP
 iptables -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
