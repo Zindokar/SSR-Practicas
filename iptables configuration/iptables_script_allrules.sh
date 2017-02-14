@@ -10,12 +10,10 @@ iptables -P FORWARD DROP
 iptables -A INPUT -i lo -j ACCEPT
 
 # - Tráfico saliente ICMP
-iptables -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
-iptables -A FORWARD -p icmp --icmp-type echo-reply -j ACCEPT
+iptables -A INPUT -p icmp -i eth0 --icmp-type echo-reply -j ACCEPT
+iptables -A INPUT -p icmp -s 10.110.7.0/24 -j ACCEPT # icmp red interna
 iptables -A FORWARD -i eth1 -o eth0 -p icmp --icmp-type echo-request -j ACCEPT 
-
-# - Responder ICMP red interna
-iptables -A INPUT -p icmp -s 10.110.7.0/24 -j ACCEPT
+iptables -A FORWARD -i eth0 -o eth1 -p icmp --icmp-type echo-reply -j ACCEPT
 
 # - Dar acceso HTTP, HTTPS, DNS y Campus Virtual
 # Pasarela
@@ -39,7 +37,7 @@ iptables -A INPUT -p tcp --dport 22 -d 10.110.7.0/24 -j ACCEPT
 
 # - Permitir SSH a Neptuno: neptuno.redes.dis.ulpgc.es
 # Workstation
+iptables -A FORWARD -p tcp --dport 22 -d 10.110.1.24 -j LOG --log-prefix "SSH in da house:"
 iptables -A FORWARD -p tcp --dport 22 -d 10.110.1.24 -j ACCEPT
-iptables -A FORWARD -p tcp --dport 22 -d 10.110.1.24 -j LOG
+iptables -A FORWARD -p tcp --sport 22 -s 10.110.1.24 -j LOG --log-prefix "SSH in da house:"
 iptables -A FORWARD -p tcp --sport 22 -s 10.110.1.24 -j ACCEPT
-iptables -A FORWARD -p tcp --sport 22 -s 10.110.1.24 -j LOG
