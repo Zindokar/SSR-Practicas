@@ -1,0 +1,16 @@
+$TTL 1003;
+@ IN SOA estacion.red7.redes.dis.ulpgc.es. dnsmaster.red7.redes.dis.ulpgc.es. (
+										16021613
+										10	 ;refresh
+										3600
+										604800
+										86400)
+
+		IN	NS	estacion
+		IN	NS	pasarela
+
+pasarela	IN	A	10.110.7.1
+estacion	IN	A	10.110.7.2
+bridge		IN	CNAME	pasarela
+workstation	IN	CNAME	estacion
+

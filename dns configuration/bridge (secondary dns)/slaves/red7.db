@@ -1,0 +1,17 @@
+$ORIGIN .
+$TTL 1003	; 16 minutes 43 seconds
+red7.redes.dis.ulpgc.es	IN SOA	estacion.red7.redes.dis.ulpgc.es. dnsmaster.red7.redes.dis.ulpgc.es. (
+				16021612   ; serial
+				10         ; refresh (10 seconds)
+				3600       ; retry (1 hour)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS	estacion.red7.redes.dis.ulpgc.es.
+			NS	pasarela.red7.redes.dis.ulpgc.es.
+$ORIGIN red7.redes.dis.ulpgc.es.
+bridge			CNAME	pasarela
+estacion		A	10.110.7.2
+pasarela		A	10.110.7.1
+validacion		CNAME	pasarela
+workstation		CNAME	estacion

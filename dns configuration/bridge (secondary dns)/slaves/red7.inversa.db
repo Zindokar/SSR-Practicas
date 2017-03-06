@@ -1,0 +1,16 @@
+$ORIGIN .
+$TTL 1002	; 16 minutes 42 seconds
+7.110.10.in-addr.arpa	IN SOA	estacion.red7.redes.dis.ulpgc.es. dnsmaster.red7.redes.dis.ulpgc.es. (
+				16021611   ; serial
+				10800      ; refresh (3 hours)
+				3600       ; retry (1 hour)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS	estacion.red7.redes.dis.ulpgc.es.
+			NS	pasarela.red7.redes.dis.ulpgc.es.
+$ORIGIN 7.110.10.in-addr.arpa.
+1			PTR	pasarela.red7.redes.dis.ulpgc.es.
+			PTR	bridge.red7.redes.dis.ulpgc.es.
+2			PTR	estacion.red7.redes.dis.ulpgc.es.
+			PTR	workstation.red7.redes.dis.ulpgc.es.
