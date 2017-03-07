@@ -1,6 +1,6 @@
 $TTL 1003;
 @ IN SOA estacion.red7.redes.dis.ulpgc.es. dnsmaster.red7.redes.dis.ulpgc.es. (
-										16021613
+										16021615
 										10800
 										3600
 										604800
@@ -11,7 +11,4 @@ $TTL 1003;
 
 1	IN	PTR	pasarela.red7.redes.dis.ulpgc.es.
 2	IN	PTR	estacion.red7.redes.dis.ulpgc.es.
-
-1	IN	PTR	bridge.red7.redes.dis.ulpgc.es.
-2	IN	PTR	workstation.red7.redes.dis.ulpgc.es.
 
