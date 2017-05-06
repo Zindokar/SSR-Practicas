@@ -39,6 +39,5 @@ iptables -A INPUT -p tcp --dport 22 -d 10.110.7.0/24 -j ACCEPT
 # Workstation
 iptables -A FORWARD -p tcp --dport 22 -d 10.110.1.24 -j LOG --log-prefix "SSH in da house:"
 iptables -A FORWARD -p tcp --dport 22 -d 10.110.1.24 -j ACCEPT
-iptables -A FORWARD -p tcp --sport 22 -s 10.110.1.24 -j LOG --log-prefix "SSH in da house:"
 iptables -A FORWARD -p tcp --sport 22 -s 10.110.1.24 -j ACCEPT
 

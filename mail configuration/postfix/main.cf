@@ -9,4 +9,7 @@ relayhost = neptuno.redes.dis.ulpgc.es
 always_add_missing_headers = yes
 smtpd_recipient_restrictions = permit_mynetworks, check_client_access hash:/etc/postfix/maquinas, reject_unauth_destination
 smtpd_sender_restrictions = check_sender_access hash:/etc/postfix/control_remitente
+sender_canonical_maps = hash:/etc/postfix/sender_canonical
+recipient_canonical_maps = hash:/etc/postfix/recipient_canonical
+relocated_maps = hash:/etc/postfix/relocated_maps
 
